@@ -1,3 +1,4 @@
 data/
 Pipfile
 .DS_Store
+*.pyc

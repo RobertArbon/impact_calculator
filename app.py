@@ -7,6 +7,8 @@ KG_PER_TONNE = 1000
 
 app = Dash(__name__)
 
+server = app.server
+
 app.layout = html.Div(
     children=[
         html.H1("Loco Home Retrofit"),
