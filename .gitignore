@@ -2,3 +2,4 @@ data/
 Pipfile
 .DS_Store
 *.pyc
+env.sh
