@@ -11,7 +11,7 @@ ELEC_GHG_DENSITY = 0.21
 GAS_GHG_DENSITY = 0.18  
 KG_PER_TONNE = 1000
 
-config_env = getattr(config, os.getenv('APP_SETTINGS', 'DevelopmentConfig'))
+# config_env = getattr(config, os.getenv('APP_SETTINGS', 'DevelopmentConfig'))
 
 app = Dash(__name__, 
            external_stylesheets=[dbc.themes.BOOTSTRAP
