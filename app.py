@@ -4,7 +4,7 @@ import os
 from dash import Dash, html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
 
-import config
+# import config
 
 DAYS_PER_YEAR = 365
 ELEC_GHG_DENSITY = 0.21
