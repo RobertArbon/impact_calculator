@@ -17,12 +17,20 @@ app = Dash(__name__,
            external_stylesheets=[dbc.themes.BOOTSTRAP
                                  ]) 
 
-
-
 server = app.server
 
-app.layout = html.Div(
-    children=[
+button = dbc.Button(
+    [
+        'Save to DB', 
+        dbc.Badge("", color='light', text_color='primary', className='ms-1')
+    ], 
+    color='primary', 
+    id='save-button'
+)
+
+
+app.layout = dbc.Container(
+    [
         html.H1("Loco Home Retrofit"),
 
         html.Div("Impact Calculator (running costs and carbon)"),
@@ -98,8 +106,9 @@ app.layout = html.Div(
         html.H3('Emissions'), 
         html.Div(id='emissions-from-gas-boiler'), 
         html.Div(id='emissions-from-hp'), 
-        html.Div(id='annual-carbon-saving')
-    ]
+        html.Div(id='annual-carbon-saving'), 
+        button,  
+    ], fluid=True
 )
 
 
@@ -232,5 +241,11 @@ def cost_saving_string(gas_consumption, boiler_eff, modelled_scop, gas_unit_char
     return saving
 
 
+@callback(
+    Input(component_id='save-button', component_property='n_clicks')
+)
+def write_data_to_db(onclick): 
+    pass
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8888)
