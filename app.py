@@ -1,6 +1,6 @@
 import os
 
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 from dash import Dash, html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
 
