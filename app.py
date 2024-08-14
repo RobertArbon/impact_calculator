@@ -20,7 +20,7 @@ server = app.server
 
 button = dbc.Button(
     [
-        'Save to DB', 
+        'Calculate', 
         dbc.Badge("", color='light', text_color='primary', className='ms-1')
     ], 
     color='primary', 
@@ -171,87 +171,26 @@ gas_consumption = dbc.Row(
 
 app.layout = dbc.Container(
     [
-        html.H1("Loco Home Retrofit"),
-        html.H2('Impact Calculator'), 
+        html.H1("Loco Home Retrofit - impact Calculator"),
+        html.H2("User inputs"),
         elec_costs, 
         gas_costs,
         hardware_spec,
-        gas_consumption
-        # html.Div("
+        gas_consumption, 
+        button, 
+        html.H2('Cost impact'), 
+        html.Div(id="annual-gas-standing-charge"),
+        html.Div(id="spark-gap"),
+        html.Div(id='break-even-point'), 
+        html.Div(id='cost-with-gas-boiler'), 
+        html.Div(id='cost-with-hp-no-gas'), 
+        html.Div(id='cost-saving'), 
 
-        # html.H2("Running Costs"),
+        html.H2('Greenhouse gas impact'), 
 
-        # dcc.Markdown(
-        #     "Simple scenario assuming gas meter removed when heat pump installed"
-        # ),
-        # html.H3("Energy bill tariffs"),
-        # html.H4("Electricity"),
-        # html.Div(
-        #     [
-        #         "Cost per unit (£/kWh) ",
-        #         dcc.Input(id="elec-unit-charge", value=0.25, type="number"),
-        #     ]
-        # ),
-        # html.Div(
-        #     [
-        #         "Standing costs (£/day) ",
-        #         dcc.Input(id="elec-stand-charge", value=0.63, type="number"),
-        #     ]
-        # ),
-        # html.H4("Gas"),
-        # html.Div(
-        #     [
-        #         "Cost per unit (£/kWh) ",
-        #         dcc.Input(id="gas-unit-charge", value=0.06, type="number"),
-        #     ]
-        # ),
-        # html.Div(
-        #     [
-        #         "Standing costs (£/day) ",
-        #         dcc.Input(id="gas-stand-charge", value=0.32, type="number"),
-        #     ]
-        # ),
-        # html.Div(id="annual-gas-standing-charge"),
-        # html.Div(id="spark-gap"),
-        # html.H3("Gas used by boiler"), 
-        # html.Div(
-        #     [
-        #         "Gas consumption (kWh/year)",
-        #         dcc.Input(id="gas-consumption", value=11500, type="number"),
-        #     ]
-        # ), 
-        # html.Div(
-        #     [
-        #         "Boiler efficiency",
-        #         dcc.Input(id="boiler-efficiency", value=0.83, type="number"),
-        #     ]
-        # ), 
-        # html.H3('Heat pump performance'), 
-        # html.Div(id='break-even-point'), 
-        # html.Div(
-        #     [
-        #         "Modelled heat pump efficiency",
-        #         dcc.Input(id="modelled-scop", value=3, type="number"),
-        #     ]
-        # ), 
-
-        # html.H3("Annual heating costs"), 
-
-        # html.Div(id='cost-with-gas-boiler'), 
-        # html.Div(id='cost-with-hp-no-gas'), 
-        # html.Div(id='cost-saving'), 
-
-        # html.H2('Greenhouse gas emissions'), 
-
-        # html.H3('Carbon factors'), 
-        # html.Div(f"Greenhouse gas emitted for every electricity unit consumed kgCO2e/kWh {ELEC_GHG_DENSITY}"), 
-        # html.Div(f"Greenhouse gas emitted for every gas unit consumed kgCO2e/kWh {GAS_GHG_DENSITY}"), 
-
-        # html.H3('Emissions'), 
-        # html.Div(id='emissions-from-gas-boiler'), 
-        # html.Div(id='emissions-from-hp'), 
-        # html.Div(id='annual-carbon-saving'), 
-        # button,  
+        html.Div(id='emissions-from-gas-boiler'), 
+        html.Div(id='emissions-from-hp'), 
+        html.Div(id='annual-carbon-saving'), 
     ], fluid=True
 )
 
