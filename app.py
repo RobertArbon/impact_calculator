@@ -2,7 +2,7 @@ import os
 
 from dash import Dash, html
 import dash_bootstrap_components as dbc
-
+from impact import calculate_impact
 import config
 
 app = Dash(__name__, 
@@ -178,12 +178,14 @@ app.layout = dbc.Container(
         html.Div(id='cost-with-gas-boiler'), 
         html.Div(id='cost-with-hp-no-gas'), 
         html.Div(id='annual-cost-saving'), 
+        html.Div(id='annual-cost-saving-pc'), 
 
         html.H2('Greenhouse gas impact'), 
 
         html.Div(id='emissions-from-gas-boiler'), 
         html.Div(id='emissions-from-hp'), 
         html.Div(id='annual-carbon-saving'), 
+        html.Div(id='annual-carbon-saving-pc'), 
     ], fluid=True
 )
 
