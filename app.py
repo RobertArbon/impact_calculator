@@ -167,28 +167,28 @@ gas_consumption = dbc.Row(
 app.layout = dbc.Container(
     [
         html.H1("Loco Home Retrofit - impact Calculator"),
-    #     html.H2("User inputs"),
-    #     elec_costs, 
-    #     gas_costs,
-    #     hardware_spec,
-    #     gas_consumption, 
-    #     button, 
-    #     html.H2('Cost impact'), 
+        html.H2("User inputs"),
+        elec_costs, 
+        gas_costs,
+        hardware_spec,
+        gas_consumption, 
+        button, 
+        html.H2('Cost impact'), 
 
-    #     html.P(["Annual gas standing charge", dbc.Badge(id="annual-gas-standing-charge", class_name='ms-1')]),
-    #     html.P(['Spark gap', dbc.Badge(id="spark-gap", class_name='ms-1')]),
-    #     html.P(['Break even SCOP (lower is better)', dbc.Badge(id='break-even-point', class_name='ms-1')]), 
-    #     html.P(['Cost of gas-boiler system', dbc.Badge(id='cost-with-gas-boiler', class_name='ms-1')]), 
-    #     html.P(['Cost of HP with no Gas', dbc.Badge(id='cost-with-hp-no-gas', class_name='ms-1')]), 
-    #     html.P(['Annual cost saving', dbc.Badge(id='annual-cost-saving', class_name='ms-1')]), 
-    #     html.P(['Annual cost saving (%)', dbc.Badge(id='annual-cost-saving-pc', class_name='ms-1')]), 
+        html.P(["Annual gas standing charge", dbc.Badge(id="annual-gas-standing-charge", class_name='ms-1')]),
+        html.P(['Spark gap', dbc.Badge(id="spark-gap", class_name='ms-1')]),
+        html.P(['Break even SCOP (lower is better)', dbc.Badge(id='break-even-point', class_name='ms-1')]), 
+        html.P(['Cost of gas-boiler system', dbc.Badge(id='cost-with-gas-boiler', class_name='ms-1')]), 
+        html.P(['Cost of HP with no Gas', dbc.Badge(id='cost-with-hp-no-gas', class_name='ms-1')]), 
+        html.P(['Annual cost saving', dbc.Badge(id='annual-cost-saving', class_name='ms-1')]), 
+        html.P(['Annual cost saving (%)', dbc.Badge(id='annual-cost-saving-pc', class_name='ms-1')]), 
 
-    #     html.H2('Greenhouse gas impact'), 
+        html.H2('Greenhouse gas impact'), 
 
-    #     html.P(['Emissions from gas boiler', dbc.Badge(id='emissions-from-gas-boiler', class_name='ms-1')]), 
-    #     html.P(['Emissions from HP', dbc.Badge(id='emissions-from-hp', class_name='ms-1')]), 
-    #     html.P(['Annual emissions saving', dbc.Badge(id='annual-carbon-saving', class_name='ms-1')]), 
-    #     html.P(['Annual emissions saving (%)', dbc.Badge(id='annual-carbon-saving-pc', class_name='ms-1')]), 
+        html.P(['Emissions from gas boiler', dbc.Badge(id='emissions-from-gas-boiler', class_name='ms-1')]), 
+        html.P(['Emissions from HP', dbc.Badge(id='emissions-from-hp', class_name='ms-1')]), 
+        html.P(['Annual emissions saving', dbc.Badge(id='annual-carbon-saving', class_name='ms-1')]), 
+        html.P(['Annual emissions saving (%)', dbc.Badge(id='annual-carbon-saving-pc', class_name='ms-1')]), 
     ], fluid=True
 )
 
