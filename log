@@ -1,0 +1,100 @@
+2024-08-16T10:34:45.411297+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2024-08-16T10:34:45.411298+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2024-08-16T10:34:45.411298+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.411298+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2024-08-16T10:34:45.411298+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2024-08-16T10:34:45.411299+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2024-08-16T10:34:45.411299+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2024-08-16T10:34:45.411299+00:00 app[web.1]: File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+2024-08-16T10:34:45.411299+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2024-08-16T10:34:45.411299+00:00 app[web.1]: File "/app/app.py", line 6, in <module>
+2024-08-16T10:34:45.411299+00:00 app[web.1]: import config
+2024-08-16T10:34:45.411300+00:00 app[web.1]: File "/app/config.py", line 4, in <module>
+2024-08-16T10:34:45.411300+00:00 app[web.1]: class Config(object):
+2024-08-16T10:34:45.411300+00:00 app[web.1]: File "/app/config.py", line 7, in Config
+2024-08-16T10:34:45.411300+00:00 app[web.1]: HOST = os.environ['HOST']
+2024-08-16T10:34:45.411300+00:00 app[web.1]: ~~~~~~~~~~^^^^^^^^
+2024-08-16T10:34:45.411300+00:00 app[web.1]: File "<frozen os>", line 714, in __getitem__
+2024-08-16T10:34:45.411301+00:00 app[web.1]: KeyError: 'HOST'
+2024-08-16T10:34:45.411376+00:00 app[web.1]: [2024-08-16 10:34:45 +0000] [9] [INFO] Worker exiting (pid: 9)
+2024-08-16T10:34:45.454818+00:00 app[web.1]: [2024-08-16 10:34:45 +0000] [2] [ERROR] Worker (pid:9) exited with code 3
+2024-08-16T10:34:45.481379+00:00 app[web.1]: [2024-08-16 10:34:45 +0000] [10] [ERROR] Exception in worker process
+2024-08-16T10:34:45.481382+00:00 app[web.1]: Traceback (most recent call last):
+2024-08-16T10:34:45.481383+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+2024-08-16T10:34:45.481383+00:00 app[web.1]: worker.init_process()
+2024-08-16T10:34:45.481384+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/workers/base.py", line 134, in init_process
+2024-08-16T10:34:45.481384+00:00 app[web.1]: self.load_wsgi()
+2024-08-16T10:34:45.481385+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+2024-08-16T10:34:45.481385+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2024-08-16T10:34:45.481385+00:00 app[web.1]: ^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.481385+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2024-08-16T10:34:45.481386+00:00 app[web.1]: self.callable = self.load()
+2024-08-16T10:34:45.481386+00:00 app[web.1]: ^^^^^^^^^^^
+2024-08-16T10:34:45.481386+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+2024-08-16T10:34:45.481386+00:00 app[web.1]: return self.load_wsgiapp()
+2024-08-16T10:34:45.481387+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.481387+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+2024-08-16T10:34:45.481387+00:00 app[web.1]: return util.import_app(self.app_uri)
+2024-08-16T10:34:45.481387+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.481388+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/util.py", line 371, in import_app
+2024-08-16T10:34:45.481397+00:00 app[web.1]: mod = importlib.import_module(module)
+2024-08-16T10:34:45.481397+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.481400+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/importlib/__init__.py", line 90, in import_module
+2024-08-16T10:34:45.481400+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2024-08-16T10:34:45.481400+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.481401+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+2024-08-16T10:34:45.481401+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+2024-08-16T10:34:45.481401+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+2024-08-16T10:34:45.481401+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+2024-08-16T10:34:45.481402+00:00 app[web.1]: File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+2024-08-16T10:34:45.481402+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2024-08-16T10:34:45.481402+00:00 app[web.1]: File "/app/app.py", line 6, in <module>
+2024-08-16T10:34:45.481402+00:00 app[web.1]: import config
+2024-08-16T10:34:45.481402+00:00 app[web.1]: File "/app/config.py", line 4, in <module>
+2024-08-16T10:34:45.481403+00:00 app[web.1]: class Config(object):
+2024-08-16T10:34:45.481403+00:00 app[web.1]: File "/app/config.py", line 7, in Config
+2024-08-16T10:34:45.481403+00:00 app[web.1]: HOST = os.environ['HOST']
+2024-08-16T10:34:45.481403+00:00 app[web.1]: ~~~~~~~~~~^^^^^^^^
+2024-08-16T10:34:45.481403+00:00 app[web.1]: File "<frozen os>", line 714, in __getitem__
+2024-08-16T10:34:45.481404+00:00 app[web.1]: KeyError: 'HOST'
+2024-08-16T10:34:45.481478+00:00 app[web.1]: [2024-08-16 10:34:45 +0000] [10] [INFO] Worker exiting (pid: 10)
+2024-08-16T10:34:45.523288+00:00 app[web.1]: [2024-08-16 10:34:45 +0000] [2] [ERROR] Worker (pid:10) exited with code 3
+2024-08-16T10:34:45.523324+00:00 app[web.1]: Traceback (most recent call last):
+2024-08-16T10:34:45.523332+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 209, in run
+2024-08-16T10:34:45.523484+00:00 app[web.1]: self.sleep()
+2024-08-16T10:34:45.523515+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 360, in sleep
+2024-08-16T10:34:45.523595+00:00 app[web.1]: ready = select.select([self.PIPE[0]], [], [], 1.0)
+2024-08-16T10:34:45.523684+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-08-16T10:34:45.523693+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2024-08-16T10:34:45.523748+00:00 app[web.1]: self.reap_workers()
+2024-08-16T10:34:45.523764+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 530, in reap_workers
+2024-08-16T10:34:45.523849+00:00 app[web.1]: raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+2024-08-16T10:34:45.523875+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+2024-08-16T10:34:45.523876+00:00 app[web.1]: 
+2024-08-16T10:34:45.523884+00:00 app[web.1]: During handling of the above exception, another exception occurred:
+2024-08-16T10:34:45.523884+00:00 app[web.1]: 
+2024-08-16T10:34:45.523884+00:00 app[web.1]: Traceback (most recent call last):
+2024-08-16T10:34:45.523893+00:00 app[web.1]: File "/app/.heroku/python/bin/gunicorn", line 8, in <module>
+2024-08-16T10:34:45.523923+00:00 app[web.1]: sys.exit(run())
+2024-08-16T10:34:45.523953+00:00 app[web.1]: ^^^^^
+2024-08-16T10:34:45.523961+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+2024-08-16T10:34:45.523997+00:00 app[web.1]: WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]", prog=prog).run()
+2024-08-16T10:34:45.524019+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/app/base.py", line 236, in run
+2024-08-16T10:34:45.524075+00:00 app[web.1]: super().run()
+2024-08-16T10:34:45.524088+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/app/base.py", line 72, in run
+2024-08-16T10:34:45.524123+00:00 app[web.1]: Arbiter(self).run()
+2024-08-16T10:34:45.524140+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 229, in run
+2024-08-16T10:34:45.524190+00:00 app[web.1]: self.halt(reason=inst.reason, exit_status=inst.exit_status)
+2024-08-16T10:34:45.524212+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 342, in halt
+2024-08-16T10:34:45.524277+00:00 app[web.1]: self.stop()
+2024-08-16T10:34:45.524292+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 396, in stop
+2024-08-16T10:34:45.524360+00:00 app[web.1]: time.sleep(0.1)
+2024-08-16T10:34:45.524375+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2024-08-16T10:34:45.524424+00:00 app[web.1]: self.reap_workers()
+2024-08-16T10:34:45.524436+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.12/site-packages/gunicorn/arbiter.py", line 530, in reap_workers
+2024-08-16T10:34:45.524518+00:00 app[web.1]: raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+2024-08-16T10:34:45.524536+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+2024-08-16T10:34:45.588126+00:00 heroku[web.1]: Process exited with status 1
+2024-08-16T10:34:45.610851+00:00 heroku[web.1]: State changed from starting to crashed
+2024-08-16T10:37:51.025612+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=impact-calculator-79cfe1dd3a70.herokuapp.com request_id=d4de0d19-00cf-40e4-93ad-ad448989d0ce fwd="217.39.60.4" dyno= connect= service= status=503 bytes= protocol=https
+2024-08-16T10:37:51.440168+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=impact-calculator-79cfe1dd3a70.herokuapp.com request_id=66990f15-e50e-4085-8f4e-9703602771de fwd="217.39.60.4" dyno= connect= service= status=503 bytes= protocol=https
