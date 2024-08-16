@@ -39,6 +39,11 @@ def calc_cost_with_hp_no_gas(gas_consumption, boiler_efficiency, modelled_scop, 
     return elec_unit_charge*gas_consumption*boiler_efficiency/modelled_scop
 
 
+def as_string(value, fill="", align="<", width=4, precision=2, sep=',', prefix=None, suffix=None): 
+    prefix = prefix or ''
+    suffix = suffix or ''
+    return f"{prefix}{value:{fill}{align}{width}{sep}.{precision}f}{suffix}"
+
 
 @callback(
     Output(component_id='annual-gas-standing-charge', component_property='children'), 
@@ -67,27 +72,27 @@ def calc_cost_with_hp_no_gas(gas_consumption, boiler_efficiency, modelled_scop, 
 def calculate_impact(n_clicks, gas_heat_cons, gas_cook_cons, boiler_eff, 
                      modelled_scop, gas_unit_charge, gas_stand_charge,
                      elec_unit_charge, elec_stand_charge): 
+    boiler_eff /= 100
     annual_gas_stand_charge = calc_gas_standing_charge(gas_stand_charge)
     spark_gap = calc_spark_gap(elec_unit_charge, gas_unit_charge)
     break_even_point = calc_break_even_point(gas_heat_cons, boiler_eff, elec_unit_charge, 
                      gas_unit_charge, gas_stand_charge)
     cost_with_gas_boiler = calc_cost_with_gas_boiler(gas_heat_cons, gas_unit_charge, gas_stand_charge) 
     cost_with_hp_no_gas = calc_cost_with_hp_no_gas(gas_heat_cons, boiler_eff, modelled_scop, elec_unit_charge)
-    emissions_from_gas_boiler = calc_emissions_from_electricity(gas_heat_cons, boiler_eff, 
-                                                                 modelled_scop)
-    emissions_from_hp = calc_cost_with_hp_no_gas(gas_heat_cons, boiler_eff, modelled_scop, elec_unit_charge)
+    emissions_from_gas_boiler = calc_emissions_from_gas(gas_heat_cons)
+    emissions_from_hp = calc_emissions_from_electricity(gas_heat_cons, boiler_eff, modelled_scop)
     return (
-        annual_gas_stand_charge, 
-        spark_gap, 
-        break_even_point, 
-        cost_with_gas_boiler, 
-        cost_with_hp_no_gas, 
-        cost_with_gas_boiler - cost_with_hp_no_gas, 
-        100**(cost_with_gas_boiler/cost_with_hp_no_gas-1), 
-        emissions_from_gas_boiler, 
-        emissions_from_hp, 
-        emissions_from_gas_boiler - emissions_from_hp,
-        100*(emissions_from_gas_boiler/emissions_from_hp-1)
+        as_string(annual_gas_stand_charge, prefix='£'), 
+        as_string(spark_gap, precision=1), 
+        as_string(break_even_point,precision=1),
+        as_string(cost_with_gas_boiler, prefix='£'), 
+        as_string(cost_with_hp_no_gas, prefix='£'), 
+        as_string(cost_with_gas_boiler - cost_with_hp_no_gas, prefix='£'), 
+        as_string(100*(cost_with_gas_boiler/cost_with_hp_no_gas-1), suffix='%', precision=1), 
+        as_string(emissions_from_gas_boiler, precision=1, suffix='tonnes-CO2e p.a.'), 
+        as_string(emissions_from_hp,precision=1, suffix='tonnes-CO2e p.a.'), 
+        as_string(emissions_from_gas_boiler - emissions_from_hp, precision=1, suffix='tonnes-CO2e p.a.'), 
+        as_string(100*(1-emissions_from_hp/emissions_from_gas_boiler), precision=1, suffix='%')
     )
 
 
