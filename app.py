@@ -3,7 +3,7 @@ import os
 from dash import Dash, html
 import dash_bootstrap_components as dbc
 from impact import calculate_impact
-import config
+# import config
 
 app = Dash(__name__, 
            external_stylesheets=[dbc.themes.BOOTSTRAP
