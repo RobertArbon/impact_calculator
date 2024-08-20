@@ -1,5 +1,5 @@
 from dash import Input, Output, callback, State
-
+from db_write import WriteUserData
 DAYS_PER_YEAR = 365
 ELEC_GHG_DENSITY = 0.21
 GAS_GHG_DENSITY = 0.18  
@@ -45,6 +45,12 @@ def as_string(value, fill="", align="<", width=4, precision=2, sep=',', prefix=N
     return f"{prefix}{value:{fill}{align}{width}{sep}.{precision}f}{suffix}"
 
 
+def write_user_inputs(**kwargs): 
+    writer = WriteUserData()
+    writer.committing_data(**kwargs)
+
+
+
 @callback(
     Output(component_id='annual-gas-standing-charge', component_property='children'), 
     Output(component_id='spark-gap', component_property='children'), 
@@ -73,6 +79,18 @@ def calculate_impact(n_clicks, gas_heat_cons, gas_cook_cons, boiler_eff,
                      modelled_scop, gas_unit_charge, gas_stand_charge,
                      elec_unit_charge, elec_stand_charge): 
     boiler_eff /= 100
+    write_user_inputs(elec_unit_charge=elec_unit_charge, 
+                      gas_stand_charge=gas_stand_charge, 
+                      gas_unit_charge=gas_unit_charge, 
+                      gas_heat_consumption=gas_heat_cons, 
+                      gas_nonheat_consumption=gas_cook_cons, 
+                      elec_nonheat_consumption=0.0, 
+                      boiler_efficiency=boiler_eff, 
+                      hp_scop=modelled_scop, 
+                      elec_upweighting=0.1, 
+                      elec_stand_charge=elec_stand_charge)
+
+
     annual_gas_stand_charge = calc_gas_standing_charge(gas_stand_charge)
     spark_gap = calc_spark_gap(elec_unit_charge, gas_unit_charge)
     break_even_point = calc_break_even_point(gas_heat_cons, boiler_eff, elec_unit_charge, 
