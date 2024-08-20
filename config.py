@@ -14,5 +14,6 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     DEVELOPMENT=True
+    APP_PORT = 8888
 
 

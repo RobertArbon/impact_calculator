@@ -3,11 +3,12 @@ import os
 from dash import Dash, html
 import dash_bootstrap_components as dbc
 from impact import calculate_impact
-# import config
+import config
 
 app = Dash(__name__, 
            external_stylesheets=[dbc.themes.BOOTSTRAP
                                  ]) 
+conf_env = getattr(config, os.getenv('APP_SETTINGS', 'DevelopmentConfig'))
 
 server = app.server
 
@@ -196,4 +197,4 @@ app.layout = dbc.Container(
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=conf_env.DEBUG, port=conf_env.APP_PORT)
