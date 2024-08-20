@@ -3,7 +3,6 @@ from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 import datetime
 from sqlalchemy import create_engine
-import psycopg2
 import os
 import config
 
@@ -14,7 +13,7 @@ class WriteUserData:
     def __init__(self):
         print('Writing to DB')
     
-    def committing_data(self, user_name, 
+    def committing_data(self, 
              elec_unit_charge, 
              gas_stand_charge, 
              gas_unit_charge, 
@@ -30,27 +29,23 @@ class WriteUserData:
         Session = sessionmaker(bind=engine)
         session = Session()
         try: 
-            if (user_name is None) or (user_name == ''): 
-                user_name = 'Unknown'
-            else: 
-                pass
-
-            userdata = UserData(user_name, elec_unit_charge, 
-                 gas_stand_charge, 
-                 gas_unit_charge, 
-                 gas_heat_consumption, 
-                 gas_nonheat_consumption, 
-                 elec_nonheat_consumption, 
-                 boiler_efficiency, 
-                 hp_scop,
-                 elec_upweighting, 
-                 elec_stand_charge, 
+            userdata = UserData(
+                elec_unit_charge = elec_unit_charge, 
+                 gas_stand_charge = gas_stand_charge, 
+                 gas_unit_charge = gas_unit_charge, 
+                 gas_heat_consumption = gas_heat_consumption,  
+                 gas_nonheat_consumption = gas_nonheat_consumption, 
+                 elec_nonheat_consumption = elec_nonheat_consumption, 
+                 boiler_efficiency = boiler_efficiency, 
+                 hp_scop = hp_scop,
+                 elec_upweighting = elec_upweighting, 
+                 elec_stand_charge = elec_stand_charge, 
                  created_at = datetime.datetime.now())
             session.add(userdata)
             session.commit()
 
-        except: 
-            pass
+        except Exception as e: 
+            print('Error! ', e) 
 
         session.close()
         

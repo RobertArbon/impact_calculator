@@ -17,7 +17,6 @@ class UserData(db.Model):
    __tablename__ = 'user_data'
 
    id = db.Column(db.Integer, primary_key = True, nullable=False)
-   user_name = db.Column(db.String(100), nullable=False)
    elec_stand_charge = db.Column(db.Float())
    elec_unit_charge = db.Column(db.Float())
    gas_stand_charge = db.Column(db.Float())
@@ -32,7 +31,6 @@ class UserData(db.Model):
 
 def __init__(self, 
              id, 
-             user_name, 
              elec_unit_charge, 
              gas_stand_charge, 
              gas_unit_charge, 
@@ -45,7 +43,6 @@ def __init__(self,
              elec_stand_charge, 
              created_at):
    self.id = id
-   self.user_name = user_name
    self.elec_stand_charge = elec_stand_charge 
    self.elec_unit_charge = elec_unit_charge 
    self.gas_stand_charge = gas_stand_charge 
