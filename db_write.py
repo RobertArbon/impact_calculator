@@ -24,7 +24,7 @@ class WriteUserData:
              hp_scop,
              elec_upweighting, 
              elec_stand_charge):
-        conn = config_env.SQLALCHEMY_DATABASE_URI
+        conn = config_env.DATABASE_URL
         engine = create_engine(conn, echo = True, pool_size=500, max_overflow=-1, pool_pre_ping=True)
         Session = sessionmaker(bind=engine)
         session = Session()

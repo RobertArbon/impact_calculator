@@ -8,7 +8,7 @@ from db_conn import DbConn
 
 app = Flask(__name__)
 connections = DbConn().get_connection()
-app.config['SQLALCHEMY_DATABASE_URI'] = connections["DB_URI"]
+app.config['SQLALCHEMY_DATABASE_URI'] = connections["DATABASE_URL"]
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 

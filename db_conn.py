@@ -5,7 +5,6 @@ Adpated from https://github.com/alan-navarro/street_team/blob/main/app_framework
 import psycopg2
 import os
 import config
-print(os.environ)
 config_env = getattr(config, os.getenv('APP_SETTINGS', 'DevelopmentConfig'))
 
 class DbConn:
@@ -22,8 +21,8 @@ class DbConn:
 
         conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, db_name, user, password))
 
-        uri = config_env.SQLALCHEMY_DATABASE_URI
+        uri = config_env.DATABASE_URL
         
-        dict_conn = {"conn": conn, "DB_URI": uri}
+        dict_conn = {"conn": conn, "DATABASE_URL": uri}
         
         return dict_conn

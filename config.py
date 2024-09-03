@@ -10,7 +10,7 @@ class Config(object):
     PORT = os.environ['PORT']
     TABLE_CONN = os.getenv('TABLE_CONN', None)
     DB_NAME = os.environ['DB_NAME']
-    SQLALCHEMY_DATABASE_URI = f"postgresql://{HOST}:{PORT}/{DB_NAME}"
+    DATABASE_URL = f"postgresql://{HOST}:{PORT}/{DB_NAME}"
 
 class DevelopmentConfig(Config):
     DEVELOPMENT=True
